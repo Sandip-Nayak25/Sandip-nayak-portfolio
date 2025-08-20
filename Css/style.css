@@ -1111,13 +1111,62 @@ img {
     justify-content: center;
   }
 
-  .qualification-button {
-    margin: 0 var(--margin-bottom-0-1);
-  }
+  .qualification-section {
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+  padding: 40px 0;
+}
 
-  .qualification {
-    grid-template-columns: 0.5fr;
-  }
+.qualification-data {
+  padding: 20px;
+  position: relative;
+  width: 50%;
+}
+
+.qualification-data .content {
+  background-color: #fff;
+  padding: 15px 25px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.qualification-section::before {
+  content: '';
+  position: absolute;
+  width: 4px;
+  background-color: #007bff;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -2px;
+}
+
+.qualification-data.left {
+  left: 0;
+  text-align: right;
+}
+
+.qualification-data.right {
+  left: 50%;
+  text-align: left;
+}
+
+.qualification-data.left .content {
+  margin-right: 20px;
+}
+
+.qualification-data.right .content {
+  margin-left: 20px;
+}
+
+.qualification-date {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 5px;
+}
+
 
   .services-container {
     grid-template-columns: repeat(3, 218px);
