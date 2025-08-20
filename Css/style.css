@@ -464,6 +464,7 @@ img {
   padding: 2rem 0;
 }
 
+/* Center line */
 .qualification-timeline::before {
   content: "";
   position: absolute;
@@ -473,33 +474,63 @@ img {
   width: 2px;
   background: #007bff;
   transform: translateX(-50%);
+  z-index: 1;
 }
 
+/* Each entry */
 .qualification-data {
-  width: 50%;
-  padding: 1rem 2rem;
   position: relative;
-}
-
-.qualification-data.left {
-  left: 0;
-  text-align: right;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin: 2rem 0;
+  z-index: 2;
 }
 
 .qualification-data.right {
-  left: 50%;
-  text-align: left;
+  justify-content: flex-start;
 }
 
 .qualification-data .content {
+  width: 45%;
   background-color: #fff;
   padding: 1rem 1.5rem;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   position: relative;
-  display: inline-block;
 }
 
+/* Add dots at the center line */
+.qualification-data::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  width: 15px;
+  height: 15px;
+  background-color: #fff;
+  border: 3px solid #007bff;
+  border-radius: 50%;
+  z-index: 3;
+}
+
+.qualification-data.left::before {
+  right: -8px;
+}
+
+.qualification-data.right::before {
+  left: -8px;
+}
+
+/* Text alignment */
+.qualification-data.left .content {
+  text-align: right;
+}
+
+.qualification-data.right .content {
+  text-align: left;
+}
+
+/* Typography */
 .qualification-title {
   font-weight: 600;
   font-size: 1.1rem;
@@ -521,6 +552,31 @@ img {
   margin-right: 6px;
   color: #007bff;
 }
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+  .qualification-timeline::before {
+    left: 20px;
+  }
+
+  .qualification-data {
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-left: 0;
+  }
+
+  .qualification-data .content {
+    width: calc(100% - 40px);
+    margin-left: 30px;
+    text-align: left;
+  }
+
+  .qualification-data::before {
+    left: 10px;
+    right: auto;
+  }
+}
+
 
 
 
@@ -1224,26 +1280,6 @@ img {
   }
 }
 
-@media screen and (max-width: 768px) {
-  .qualification-timeline::before {
-    left: 10px;
-  }
 
-  .qualification-data {
-    width: 100%;
-    padding-left: 30px;
-    padding-right: 15px;
-  }
-
-  .qualification-data.left,
-  .qualification-data.right {
-    left: 0;
-    text-align: left;
-  }
-
-  .qualification-data .content {
-    margin: 0 0 2rem 0;
-  }
-}
 
 
